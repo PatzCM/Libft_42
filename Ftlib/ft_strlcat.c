@@ -1,15 +1,28 @@
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
-{	int	i = 0;
-	int d = 0;
+unsigned int	ft_strlen(char *str)
+{
+	unsigned int	i;
 
-	while(dest[d] != '\0')
-		d++;	
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	return (i);
+}
+size_t	ft_strlcat(char *dest, char *src, size_t size)
+{	
+	int	i;
+	int d;
+	int s;
 
-	while (src[i] != '\0')
+	i = 0;
+	d = ft_strlen(dest);
+	s = ft_strlen(src);
+	if (size == 0 || size <= d)
+		return (s + size);
+	while (src[i] != '\0' && i < (size - d - 1))
 	{
-	dest[d] = src[i];
-	d++;
+	dest[d + i] = src[i];
 	i++;
 	}
-	dest[d] = '\0';
+	dest[d + i] = '\0';
+	return(s + d);
 }
