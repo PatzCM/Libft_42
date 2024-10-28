@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
+#include "Libft.h"
 /*
 int	ft_atoi (const char *str);
 int	main (int argc, char **argv)

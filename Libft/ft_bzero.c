@@ -9,6 +9,8 @@
 /*   Updated: 2024/10/21 15:07:46 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Libft.h"
+
 /*
 #include <stdio.h>
 char	*ft_bzero(char *str, int s, int n);

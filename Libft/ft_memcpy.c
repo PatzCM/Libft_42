@@ -9,10 +9,8 @@
 /*   Updated: 2024/10/22 18:35:36 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Libft.h"
 
-#include <stdio.h>
-
-static int	ft_strlen(const char *str);
 /*
 void	*ft_memcpy(void *dest_str, const void * src_str, size_t n);
 
@@ -34,7 +32,7 @@ void	*ft_memcpy(void *dest_str, const void *src_str, size_t n)
 
 	dest = (char *)dest_str;
 	src = (const char *)src_str;
-	n = ft_strlen(src);
+	n = ft_strlen((char *)src);
 	i = 0;
 	while (i < n)
 	{
@@ -43,15 +41,14 @@ void	*ft_memcpy(void *dest_str, const void *src_str, size_t n)
 	}
 	return (dest);
 }
-
-static int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+//static int	ft_strlen(const char *str)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (str[i] != '\0')
+//	{
+//		i++;
+//	}
+//	return (i);
+//}
