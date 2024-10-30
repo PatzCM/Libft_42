@@ -23,7 +23,7 @@ char	**ft_split(char const *s, char c)
 	int	length;
 	
 	length = ft_countwords((char *)s, c);
-	substring = malloc((length + 1) *sizeof(char *));
+	substring = malloc((length + 1) * sizeof(char *));
 	if (substring == NULL)
 		return (NULL);
 	i = 0;
@@ -66,5 +66,6 @@ int	main(void)
 {
 	char	str[] = "This is just a test";
 	char	sep = 'i';
-	printf("%s, \n", *ft_split(str, sep));
+	char	**s = ft_split(str, sep);
+	printf("%s, \n", s[0]);
 }
