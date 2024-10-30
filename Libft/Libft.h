@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <bsd/string.h>
+//# include <bsd/string.h>
 # include <strings.h>
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);

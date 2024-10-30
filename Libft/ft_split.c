@@ -12,7 +12,7 @@
 
 #include "Libft.h"
 
-static int	ft_countwords(char *s);
+static int	ft_countwords(char *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -21,38 +21,50 @@ char	**ft_split(char const *s, char c)
 	int		start;
 	char	**substring;
 	int	length;
-
+	
+	length = ft_countwords((char *)s, c);
+	substring = malloc((length + 1) *sizeof(char *));
+	if (substring == NULL)
+		return (NULL);
 	i = 0;
 	b = 0;
-	while (s[i] = c)
-		i++;
-	start = i;
-	length = ft_countwords((char *)s);
-	while (s[i] < ft_strlen((char *)s))
+	while (s[i] != '\0')
 	{
-		while (s[i] != c)
+		while (s[i] == c)
 			i++;
-		substring[b] = ft_substr(s, start, i-1);
-		while (s[i] = c)
+		start = i;
+		while (s[i] != '\0' && s[i] != c)
 			i++;
-		while (s[i] != c)
-			i++;
-		b++;
-		substring[b] = ft_substr(s, i, (i - ft_strlen(substring[b-1])));
-		if (s[i+1] == '\0')
-			return (substring);
+		if (start < i)
+		{
+			substring[b] = ft_substr(s, start, i - start);
+				if (substring[b] != NULL)
+					b++;;
+		}
 	}
+	substring[b] = NULL;
+	return (substring);
 }
 
-static int	ft_countwords(char *s)
+static int	ft_countwords(char *s, char c)
 {
 	int	i;
+	int	words;
 	
+	words = 0;
 	i = 0;
-	
-
+	while (s[i] != '\0')
+	{
+		if (s[i] != c && (i == 0 || s[i-1] == c))
+				words++;
+		i++;
+	}	
+	return (words);
 }
+
 int	main(void)
 {
-
+	char	str[] = "This is just a test";
+	char	sep = 'i';
+	printf("%s, \n", *ft_split(str, sep));
 }
