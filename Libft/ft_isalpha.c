@@ -9,7 +9,7 @@
 /*   Updated: 2024/10/21 15:01:31 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Libft.h"
+#include "libft.h"
 /*
 #include <stdio.h>
 #include <ctype.h>

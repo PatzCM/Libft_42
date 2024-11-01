@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft.h"
+#include "libft.h"
 
 static int	ft_countwords(char *s, char c);
 
@@ -20,12 +20,9 @@ char	**ft_split(char const *s, char c)
 	int		b;
 	int		start;
 	char	**substring;
-	int	length;
-	
-	length = ft_countwords((char *)s, c);
-	substring = malloc((length + 1) * sizeof(char *));
-	if (substring == NULL)
-		return (NULL);
+
+	i = ft_countwords((char *)s, c);
+	substring = malloc((i + 1) * sizeof(char *));
 	i = 0;
 	b = 0;
 	while (s[i] != '\0')
@@ -37,9 +34,9 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (start < i)
 		{
-			substring[b] = ft_substr(s, start, i - start);
-				if (substring[b] != NULL)
-					b++;;
+			substring[b] = ft_substr(s, start, i - start - 1);
+			if (substring[b] != NULL)
+				b++;
 		}
 	}
 	substring[b] = NULL;
@@ -50,22 +47,29 @@ static int	ft_countwords(char *s, char c)
 {
 	int	i;
 	int	words;
-	
+
 	words = 0;
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c && (i == 0 || s[i-1] == c))
-				words++;
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
+			words++;
 		i++;
-	}	
+	}
 	return (words);
 }
-
+/*
 int	main(void)
 {
-	char	str[] = "This is just a test";
-	char	sep = 'i';
+	char	str[] = "     word      number two     ";
+	char	sep = '.';
 	char	**s = ft_split(str, sep);
-	printf("%s, \n", s[0]);
+	int	i = 0;
+
+	while (s[i] != NULL)
+	{
+		printf("%s\n", s[i]);
+		i++;
+	}
 }
+*/

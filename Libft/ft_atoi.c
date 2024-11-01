@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft.h"
+#include "libft.h"
 /*
 int	ft_atoi (const char *str);
 int	main (int argc, char **argv)
@@ -18,8 +18,8 @@ int	main (int argc, char **argv)
 	if (argc != 0)
 	{}
 	//char	str=argv[1];
-	printf("Mine: %d\n  ", ft_atoi(argv[1]));
-	printf("Original:  %d\n  ", atoi(argv[1]));
+	printf("Mine: %d\n", ft_atoi(argv[1]));
+	printf("Original:  %d  ", atoi(argv[1]));
 }
 */
 int	ft_atoi(const char *str)

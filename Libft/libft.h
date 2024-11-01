@@ -23,7 +23,7 @@
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_atoi(const char *str);
-char			*ft_bzero(char *str, int s, int n);
+void			*ft_bzero(void *s, size_t n);
 int				ft_isalnum(int alpha);
 int				ft_isalpha(char c);
 int				ft_isascii(int c);

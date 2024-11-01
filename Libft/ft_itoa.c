@@ -1,40 +1,66 @@
-#include "Libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/31 17:07:56 by palexand          #+#    #+#             */
+/*   Updated: 2024/10/31 17:08:30 by palexand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static int	ft_counter(int n);
 
 char	*ft_itoa(int n)
 {
-	int	i;
+	int		i;
 	char	*str;
-	char	sign;
+	int		offset;
 
-	i = 0;
+	i = ft_counter(n);
+	offset = i;
 	if (n == 0)
+		return (NULL);
+	str = malloc(i + 1);
+	if (str == NULL)
 		return (NULL);
 	if (n < 0)
 	{
-		sign = '-';
+		offset++;
+		i++;
+		str[0] = '-';
 		n *= -1;
 	}
-	str=malloc(sizeof(char) * n);
-	if (str == NULL)
-		return (NULL);if (n > 9)
-	if (n > 9)
+	while (n > 0)
 	{
-		ft_itoa(n/ 10);
-		n = n % 10;
-		str[i] = n;
-		i++;
+		str[--i] = n % 10 + 48;
+		n = n / 10;
 	}
-return (str);
+	str[offset] = '\0';
+	return (str);
 }
 
-int	main(int argc, char **argv)
+static int	ft_counter(int n)
 {
-	int	i = 0;
-	if (argc < 0)
-		return ('\0');
-	while (&argv[1][i] != (char *)'\0')
+	int	i;
+
+	i = 0;
+	if (n < 0)
+		n *= -1;
+	while (n > 0)
 	{
-		printf("%i\n", *ft_itoa(atoi(&argv[1][i])));
+		n = n / 10;
 		i++;
 	}
+	return (i);
 }
+/*
+int	main(void)
+{
+	int	i = -2843424;
+		printf("%s", ft_itoa(i));
+}
+*/

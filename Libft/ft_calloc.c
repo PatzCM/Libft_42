@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 15:10:08 by palexand          #+#    #+#             */
-/*   Updated: 2024/10/21 15:10:35 by palexand         ###   ########.fr       */
+/*   Created: 2024/10/31 17:09:13 by palexand          #+#    #+#             */
+/*   Updated: 2024/10/31 17:10:07 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalnum(int alpha)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if ((alpha >= 'a' && alpha <= 'z')
-		|| (alpha >= 'A' && alpha <= 'Z')
-		|| (alpha >= '0' && alpha <= '9'))
-		return (1);
-	else
-		return (0);
+	void	*array;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	array = malloc(nmemb * size);
+	if (!array)
+		return (NULL);
+	ft_bzero(array, (nmemb * size));
+	return (array);
 }

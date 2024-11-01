@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft.h"
+#include "libft.h"
 //unsigned int	ft_strlen(char *str)
 //{
 //	unsigned int	i;

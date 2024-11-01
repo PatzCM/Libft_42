@@ -9,31 +9,30 @@
 /*   Updated: 2024/10/21 15:07:46 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Libft.h"
 
-/*
+#include "libft.h"
+
 #include <stdio.h>
-char	*ft_bzero(char *str, int s, int n);
+void	*ft_bzero(void *s, size_t n);
+/*
 int	main (void)
 {
-	char	str[]="Hello world!";
-	int	s = 3;
-	int	n = 5;
-	printf("%s", ft_bzero(str, s, n));
+	void	*s;
+	size_t	n = 5;
+	memset(mem, 'e', 5);
+	printf("%s", ft_bzero(mem, 5));
 }
 */
-void	*ft_bzero(char *str, int s, int n)
+void	*ft_bzero(void *s, size_t n)
 {
-	int	i;
+	int					i;
+	char				*str;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i <= n)
 	{
-		while (i >= s && i <= n)
-		{
-			str[i] = '\0';
-			i++;
-		}
+		str[i] = '\0';
 		i++;
 	}
+	return (str);
 }
