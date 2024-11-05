@@ -9,16 +9,17 @@
 /*   Updated: 2024/10/24 15:23:17 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <bsd/string.h>
 #include "libft.h"
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	size_t	i;
 
-	size = ft_strlen(src);
 	i = 0;
-	while (i <= size - 1)
+	if (size <= 0)
+		return (ft_strlen(src));
+	while (i < (size - 1) && src[i])
 	{
 		dest[i] = src[i];
 		i++;
@@ -26,12 +27,13 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	dest[i] = '\0';
 	return (ft_strlen(src));
 }
-//static int	ft_strlen(char *str)
-//{
-//	int	i;
-//
-//	i = 0;
-//	while (str[i] != '\0')
-//		i++;
-//	return (i);
-//}
+/*
+int	main(void)
+{
+	char	dest[0];
+	char	str[]="this is something";
+	
+	printf("Mine: %i\n", ft_strlcpy(dest, str, 20));
+	printf("Original:%lu", strlcpy(dest, str, 20));
+}
+*/

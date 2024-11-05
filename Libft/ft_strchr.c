@@ -16,8 +16,8 @@ char	*ft_strchr(const char *s, int c);
 /* 
 int	main (void)
 {	
-	const char	s[]="Hello world";
-	int	c = 'o';
+	const char	s[]="teste";
+	int	c = 357;
 	printf("%s", ft_strchr(s, c));
 }
 */
@@ -29,10 +29,12 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char) c)
 			return ((char *)&s[i]);
 		i++;
 	}
+	if (s[i] == (unsigned char) c)
+		return ((char *)&s[i]);
 	if (c == '\0')
 		return ((char *)&s[i]);
 	return (NULL);

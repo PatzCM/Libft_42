@@ -17,8 +17,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int	main (void)
 {
 	char s[]="Oh its not real";
-	int	c='i';
-	int	n=10;
+	int	c= 2 + 256;
+	int	n= 3;
 	printf("Mine%p\n", ft_memchr(s, c, n));
        printf("Original%p\n", memchr(s, c, n));	
 }
@@ -32,7 +32,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (src[i] == c)
+		if (src[i] == (char) c)
 			return ((void *)&src[i]);
 		i++;
 	}

@@ -21,10 +21,10 @@ int	main (void)
 	printf("%i", ft_isalpha(c));
 }
 */
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1024);
+		return (1);
 	else
 		return (0);
 }

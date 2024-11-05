@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h>
-void	*ft_bzero(void *s, size_t n);
 /*
+void	ft_bzero(void *s, size_t n);
+
 int	main (void)
 {
 	void	*s;
@@ -23,16 +22,18 @@ int	main (void)
 	printf("%s", ft_bzero(mem, 5));
 }
 */
-void	*ft_bzero(void *s, size_t n)
+
+void	ft_bzero(void *s, size_t n)
 {
 	int					i;
 	char				*str;
 
+	str = s;
 	i = 0;
-	while (i <= n)
+	while (n > 0)
 	{
-		str[i] = '\0';
+		str[i] = 0;
 		i++;
+		n--;
 	}
-	return (str);
 }

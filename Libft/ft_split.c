@@ -13,6 +13,7 @@
 #include "libft.h"
 
 static int	ft_countwords(char *s, char c);
+static void	ft_free(char **s);
 
 char	**ft_split(char const *s, char c)
 {
@@ -21,8 +22,9 @@ char	**ft_split(char const *s, char c)
 	int		start;
 	char	**substring;
 
-	i = ft_countwords((char *)s, c);
-	substring = malloc((i + 1) * sizeof(char *));
+	substring = malloc((ft_countwords((char *)s, c) + 1) * sizeof(char *));
+	if (!substring)
+		return (NULL);
 	i = 0;
 	b = 0;
 	while (s[i] != '\0')
@@ -34,13 +36,12 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (start < i)
 		{
-			substring[b] = ft_substr(s, start, i - start - 1);
-			if (substring[b] != NULL)
-				b++;
+			substring[b] = ft_substr(s, start, i - start);
+			if (substring[b++] == NULL)
+				return (ft_free(substring), NULL);
 		}
 	}
-	substring[b] = NULL;
-	return (substring);
+	return (substring[b] = NULL, substring);
 }
 
 static int	ft_countwords(char *s, char c)
@@ -58,11 +59,24 @@ static int	ft_countwords(char *s, char c)
 	}
 	return (words);
 }
+
+static void	ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != NULL)
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
 /*
 int	main(void)
 {
-	char	str[] = "     word      number two     ";
-	char	sep = '.';
+	char	str[] = "       lorem    ipsum dolor sit amet, consectetu";
+	char	sep = ' ';
 	char	**s = ft_split(str, sep);
 	int	i = 0;
 

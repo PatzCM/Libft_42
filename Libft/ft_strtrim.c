@@ -14,30 +14,27 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		size;
-	int		i;
-	int		j;
-	char	*str;
+	int		start;
 
-	i = 0;
-	j = 0;
-	size = ft_strlen((char *)s1);
-	while (s1[i] == set[0])
-		i++;
-	while (s1[size - 1] == set[0])
+	start = 0;
+	size = ft_strlen((char *)s1) - 1;
+	while (ft_strchr(set, s1[start]) && s1[start])
+		start++;
+	while (ft_strchr(set, s1[size]) && s1[start])
 		size--;
-	str = malloc(sizeof(char) * ((size - 1) - i));
-	if (str == NULL)
-		return (NULL);
-	while (i <= size -1)
-		str[j++] = s1[i++];
-	str[j] = '\0';
-	return (str);
+	return (ft_substr((char *)s1, start, size - start + 1));
 }
 /*
 int	main(void)
 {
-	char s1[] = "       this string has    ...   lots of spaces!      ";
-	char set[] = " ";
+	char s1[] = "aaaaaaaaabaonetwoabca";
+	char set[] = "abc";
 	printf("%s\n", ft_strtrim(s1, set));
+
+	Logic: start at the beginning of the string and iterate until
+the first character that is not in the set is found. 
+	Then, start at the end of the string and iterate until 
+the first character that is not in the set is found.
+	Finally, return a substring from the start to the end.
 }
 */

@@ -15,24 +15,23 @@
 /*
 int	main(void)
 {
-	const char s[]="Hello world";
-	int	c = 'o';
-	printf("%s", ft_strrchr(s, c));
+	const char s[]="super";
+	int	c = '\0';
+	printf("Mine:%s\n", ft_strrchr(s, c));
+	printf("Original:%s", strrchr(s, c));
 }
 */
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	b;
 	int	i;
 
-	i = 0;
-	b = 0;
-	while (s[b] != '\0')
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		if (s[b] == c)
-			i = b;
-		b++;
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i--;
 	}
-	return ((char *)&s[i]);
+	return (NULL);
 }
