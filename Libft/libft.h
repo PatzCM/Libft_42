@@ -6,7 +6,7 @@
 /*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:39:00 by palexand          #+#    #+#             */
-/*   Updated: 2024/10/24 16:04:28 by palexand         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:34:12 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ void					*ft_calloc(size_t nmemb, size_t size);
 char					*ft_strchr(const char *s, int c);
 char					**ft_split(char const *s, char c);
 char					*ft_itoa(int n);
+void					ft_striteri(char *s, void (*f)(unsigned int, char*));
+char					*ft_strmapi(const char *s, \
+										char (*f)(unsigned int, char));
+void					ft_putchar_fd(char c, int fd);
+void					ft_putstr_fd(char *s, int fd);
+void					ft_putendl_fd(char *s, int fd);
 
 #endif

@@ -16,51 +16,56 @@ static int	ft_counter(int n);
 
 char	*ft_itoa(int n)
 {
-	int		i;
+	long	i;
 	char	*str;
-	int		offset;
+	int		end;
 
-	i = ft_counter(n);
-	offset = i;
-	if (n == 0)
-		return (NULL);
-	str = malloc(i + 1);
+	i = n;
+	str = malloc((sizeof(char)) * (end = ft_counter(n)) + 1);
 	if (str == NULL)
 		return (NULL);
-	if (n < 0)
+	if (i == 0)
+		return (str[0] = '0', str[1] = '\0', str);
+	if (i < 0)
 	{
-		offset++;
-		i++;
 		str[0] = '-';
-		n *= -1;
+		i *= -1;
 	}
-	while (n > 0)
+	str[end] = '\0';
+	while (i > 0)
 	{
-		str[--i] = n % 10 + 48;
-		n = n / 10;
+		str[--end] = i % 10 + 48;
+		i = i / 10;
 	}
-	str[offset] = '\0';
 	return (str);
 }
 
 static int	ft_counter(int n)
 {
-	int	i;
+	long	nb;
+	int		i;
 
 	i = 0;
-	if (n < 0)
-		n *= -1;
-	while (n > 0)
+	nb = n;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
 	{
-		n = n / 10;
+		nb *= -1;
+		i++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 10;
 		i++;
 	}
 	return (i);
 }
+
 /*
 int	main(void)
 {
-	int	i = -2843424;
-		printf("%s", ft_itoa(i));
+	long	i = 0;
+	printf("%s", ft_itoa(i));
 }
 */
