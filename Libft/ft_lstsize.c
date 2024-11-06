@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 15:46:17 by palexand          #+#    #+#             */
-/*   Updated: 2024/10/21 15:46:19 by palexand         ###   ########.fr       */
+/*   Created: 2024/11/06 17:14:11 by palexand          #+#    #+#             */
+/*   Updated: 2024/11/06 17:14:11 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-/*
-void	*ft_memmove(void *dest, const void *src, size_t n);
-int	main (void)
-{
-	char	dest[]="";
-	const char src[]="Hello";
-	size_t n = 5;
-	ft_memmove(dest, src, n);
-}
-*/
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	size_t				i;
-	char				*destino;
-	const char			*srce;
 
-	destino = dest;
-	srce = src;
-	while (i < n)
-		i = 0;
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
+{
+	int			counter;
+	t_list		*temp;
+
+	counter = 0;
+	temp = lst;
+	while (temp)
 	{
-		destino[i] = srce[i];
-		i++;
+		temp = temp->next;
+		counter++;
 	}
-	return (dest);
+	return (counter);
 }

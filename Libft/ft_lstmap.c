@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 15:46:17 by palexand          #+#    #+#             */
-/*   Updated: 2024/10/21 15:46:19 by palexand         ###   ########.fr       */
+/*   Created: 2024/11/06 17:23:16 by palexand          #+#    #+#             */
+/*   Updated: 2024/11/06 17:23:16 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-/*
-void	*ft_memmove(void *dest, const void *src, size_t n);
-int	main (void)
-{
-	char	dest[]="";
-	const char src[]="Hello";
-	size_t n = 5;
-	ft_memmove(dest, src, n);
-}
-*/
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	size_t				i;
-	char				*destino;
-	const char			*srce;
 
-	destino = dest;
-	srce = src;
-	while (i < n)
-		i = 0;
+#include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
+{
+	t_list	*new_list;
+	t_list	*tmp;
+	t_list	*node_content;
+
+	tmp = lst;
+	if (tmp == NULL)
+		return (NULL);
+	while (tmp)
 	{
-		destino[i] = srce[i];
-		i++;
+		node_content = (f)(tmp->content);
+		new_list = ft_lstnew(node_content);
+		tmp = tmp->next;
 	}
-	return (dest);
+		ft_lstclear(&lst, del);	
+	return (new_list);	
 }
+

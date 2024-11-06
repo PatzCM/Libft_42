@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/06 15:17:39 by palexand          #+#    #+#             */
+/*   Updated: 2024/11/06 15:18:25 by palexand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -6,7 +18,6 @@ void	ft_putnbr_fd(int n, int fd)
 	char	digit;
 
 	nb = n;
-
 	if (nb == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
@@ -18,7 +29,7 @@ void	ft_putnbr_fd(int n, int fd)
 		nb *= -1;
 		ft_putnbr_fd(nb, fd);
 	}
-	else if (nb >= 9)
+	else if (nb > 9)
 	{
 		ft_putnbr_fd(nb / 10, fd);
 		ft_putnbr_fd(nb % 10, fd);
@@ -29,14 +40,13 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &digit, 1);
 	}
 }
-
 /*
 int	main(void)
 {
 	ft_putnbr_fd(-2147483648, 1);
 	write(1, "\n", 1);
-	ft_putnbr_fd(21043, 1);
+	ft_putnbr_fd(3249, 1);
 	write(1, "\n", 1);
-	ft_putnbr_fd(0, 1);
+	ft_putnbr_fd(2, 1);
 }
 */

@@ -1,5 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/06 15:22:22 by palexand          #+#    #+#              #
+#    Updated: 2024/11/06 17:38:43 by palexand         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Vari/alias that define the files that will be compilled together
-RM = rm -f 
+RM = rm -f
+# CFLAGS = Compiler flags that will be used to compile the files
+CFLAGS = -Wall -Wextra -Werror
+# SRCS = Source files that will be compiled together
 SRCS = ft_isalnum.c ft_itoa.c ft_memset.c ft_strlcpy.c ft_substr.c ft_isalpha.c \
 			ft_memchr.c ft_split.c ft_strlen.c ft_tolower.c ft_atoi.c ft_isascii.c \
 			ft_memcmp.c ft_strchr.c ft_strncmp.c ft_strdup.c ft_toupper.c ft_bzero.c ft_isdigit.c \
@@ -15,7 +30,7 @@ NAME = libft.a
 all: ${NAME}
 #Name calls the objects and then compiles (ar rc) calling the name of the file and objects to compile.
 ${NAME}: ${OBJS}
-	ar rc ${NAME} ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 #Delete the .o files
 clean:
 	${RM} ${OBJS}
@@ -24,7 +39,14 @@ fclean: clean
 	${RM} ${NAME}
 #Clean everything (.o & .a)
 re: fclean all
+
 #To not allow overlap of rules
 .PHONY: re fclean clean all
 
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_OBJS = ${BONUS:.c=.o}
+bonus: ${BONUS_OBJS} ${OBJS}
+	ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
+.PHONY: bonus

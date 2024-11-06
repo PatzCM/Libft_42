@@ -23,9 +23,9 @@
 
 size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	int	i;
-	int	d;
-	int	s;
+	size_t	i;
+	size_t	d;
+	size_t	s;
 
 	i = 0;
 	d = ft_strlen(dest);

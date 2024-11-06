@@ -25,8 +25,8 @@ int	main (void)
 */
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int			i;
-	const char	*src;
+	size_t			i;
+	const char		*src;
 
 	src = s;
 	i = 0;
