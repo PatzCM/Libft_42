@@ -25,6 +25,9 @@ int	main (void)
 	printf("Function: %p\n", memset(str, value, size));
 }
 */
+// The memset() writes n bytes of value c 
+// (converted to an unsigned char) to the string s.
+
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t				i;
@@ -32,9 +35,9 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	ptr = (unsigned char *)s;
 	i = 0;
-	while (i <= n)
+	while (i < n)
 	{
-		ptr[i] = c;
+		ptr[i] = (unsigned char)c;
 		i++;
 	}
 	return (ptr);

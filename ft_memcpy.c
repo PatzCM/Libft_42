@@ -23,17 +23,18 @@ int	main (void)
 	printf("%p", ft_memcpy(src_str, dest_str, n));
 }
 */
-
+// The memcpy() copies n bytes from memory area src to memory area dest.
 void	*ft_memcpy(void *dest_str, const void *src_str, size_t n)
 {
-	char			*dest;
-	const char		*src;
-	size_t			i;
+	unsigned char			*dest;
+	unsigned char			*src;
+	size_t					i;
 
-	dest = (char *)dest_str;
-	src = (const char *)src_str;
-	n = ft_strlen((char *)src);
 	i = 0;
+	dest = (unsigned char *)dest_str;
+	src = (unsigned char *)src_str;
+	if (!dest && !src)
+		return (NULL);
 	while (i < n)
 	{
 		dest[i] = src[i];
@@ -41,14 +42,3 @@ void	*ft_memcpy(void *dest_str, const void *src_str, size_t n)
 	}
 	return (dest);
 }
-//static int	ft_strlen(const char *str)
-//{
-//	int	i;
-//
-//	i = 0;
-//	while (str[i] != '\0')
-//	{
-//		i++;
-//	}
-//	return (i);
-//}

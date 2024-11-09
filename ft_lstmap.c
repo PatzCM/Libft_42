@@ -12,22 +12,34 @@
 
 #include "libft.h"
 
+/*We want to create a new list with the content of the first list */
+/*after applying the function f to each element of the list.*/
+/*If the list is empty or the f or del is NULL, we return NULL.*/
+/*We go through the list and apply the function f to each element of the list.*/
+/*If the function f fails, we delete the new list and the content of the node.*/
+/*We add the new node to the new list.*/
+/**/
 t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
-	t_list	*tmp;
+	void	*tmp;
 	t_list	*node_content;
 
-	tmp = lst;
-	if (tmp == NULL)
+	if (lst == NULL || f == NULL || del == NULL)
 		return (NULL);
-	while (tmp)
+	new_list = NULL;
+	while (lst)
 	{
-		node_content = (f)(tmp->content);
-		new_list = ft_lstnew(node_content);
-		tmp = tmp->next;
+		tmp = (f)(lst->content);
+		node_content = ft_lstnew(tmp);
+		if (node_content == NULL)
+		{
+			ft_lstclear(&new_list, del);
+			del(tmp);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, node_content);
+		lst = lst->next;
 	}
-		ft_lstclear(&lst, del);	
-	return (new_list);	
+	return (new_list);
 }
-

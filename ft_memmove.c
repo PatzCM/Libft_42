@@ -20,19 +20,25 @@ int	main (void)
 	ft_memmove(dest, src, n);
 }
 */
+// The memmove() copies n bytes from memory area src to memory area dest. 
+// The memory areas may overlap: copying takes place as though the bytes in src
+// are first copied into a temporary array that does not overlap src or dest, 
+// and the bytes are then copied from the temporary array to dest.
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t				i;
-	char				*destino;
-	const char			*srce;
+	unsigned char		*ddest;
+	unsigned char		*ssrc;
 
-	destino = dest;
-	srce = src;
-	while (i < n)
-		i = 0;
+	ddest = (unsigned char *)dest;
+	ssrc = (unsigned char *)src;
+	i = 0;
+	if (ddest > ssrc)
 	{
-		destino[i] = srce[i];
-		i++;
+		while (i++ < n)
+			ddest[n - i] = ssrc[n - i];
 	}
+	else
+		ft_memcpy(dest, src, n);
 	return (dest);
 }
