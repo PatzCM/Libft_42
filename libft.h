@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <bsd/string.h>
 # include <strings.h>
-// # include "gnl/get_next_line_bonus.h"
 
 typedef struct s_list
 {
