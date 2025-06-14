@@ -6,7 +6,7 @@
 /*   By: palexand <palexand@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:39:00 by palexand          #+#    #+#             */
-/*   Updated: 2024/11/05 18:34:12 by palexand         ###   ########.fr       */
+/*   Updated: 2025/06/10 23:02:03 by palexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <bsd/string.h>
 # include <strings.h>
+# include "gnl/get_next_line_bonus.h"
 
 typedef struct s_list
 {
